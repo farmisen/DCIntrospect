@@ -598,6 +598,7 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 			if (self.currentView.alpha > 0.0f)
 				self.currentView.alpha -= 0.05f;
 		}
+        #ifdef DEBUG
 		else if ([string isEqualToString:kDCIntrospectKeysEnterGDB])
 		{
 			UIView *view = self.currentView;
@@ -606,6 +607,7 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 			DEBUGGER;
 			return NO;
 		}
+        #endif
 		
 		self.currentView.frame = CGRectMake(floorf(frame.origin.x),
 											floorf(frame.origin.y),
